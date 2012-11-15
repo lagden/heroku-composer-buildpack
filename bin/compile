@@ -15,7 +15,7 @@ PATH="$BUILD_DIR/bin:$PATH"
 
 echo "-----> Installing Composer"
 COMPOSER_URL="https://getcomposer.org/composer.phar"
-COMPOSER = $BUILD_DIR/bin/composer
+COMPOSER = "$BUILD_DIR/bin/composer"
 curl $COMPOSER_URL -s -o $COMPOSER
 
 chmod +x $COMPOSER
