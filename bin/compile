@@ -8,7 +8,7 @@ LP_DIR=`cd $(dirname $0); cd ..; pwd`
 mkdir -p $CACHE_DIR
 
 echo "-----> Fetching PHP binaries"
-PHP_PACKAGE="http://redima-composer-buildpack.s3.amazonaws.com/php-5.4.tgz"
+PHP_PACKAGE="http://redima-composer-buildpack.s3.amazonaws.com/php-5.4.8.tgz"
 curl $PHP_PACKAGE -s -o - | tar xzf - -C $BUILD_DIR
 
 PATH="$BUILD_DIR/bin:$PATH"
@@ -21,7 +21,10 @@ chmod +x $COMPOSER
 
 export COMPOSER_VENDOR_DIR=$CACHE_DIR/vendor
 mkdir -p $COMPOSER_VENDOR_DIR
-echo "       Using composer vendor dir: $COMPOSER_VENDOR_DIR"
+
+echo "-----> Installing Dependencies"
 cd $BUILD_DIR
 composer install
 cd $LP_DIR
+
+ln -s $COMPOSER_VENDOR_DIR $BUILD_DIR/
