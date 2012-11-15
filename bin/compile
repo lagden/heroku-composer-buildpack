@@ -22,4 +22,6 @@ chmod +x $COMPOSER
 export COMPOSER_VENDOR_DIR=$CACHE_DIR/vendor
 mkdir -p $COMPOSER_VENDOR_DIR
 echo "       Using composer vendor dir: $COMPOSER_VENDOR_DIR"
+cd $BUILD_DIR
 composer install
+cd $LP_DIR
