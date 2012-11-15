@@ -14,7 +14,7 @@ curl $PHP_PACKAGE -s -o - | tar xzf - -C $BUILD_DIR
 PATH="$BUILD_DIR/bin:$PATH"
 
 echo "-----> Installing Composer"
-COMPOSER_URL="https://getcomposer.org/composer.phar"
+COMPOSER_URL="http://redima-composer-buildpack.s3.amazonaws.com/composer.phar"
 curl $COMPOSER_URL -s -o $BUILD_DIR/bin/composer
 COMPOSER=$BUILD_DIR/bin/composer
 chmod +x $COMPOSER
