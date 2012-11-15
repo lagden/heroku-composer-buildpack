@@ -22,8 +22,12 @@ chmod +x $COMPOSER
 echo "-----> Installing Dependencies"
 echo "       Using `$COMPOSER --version`"
 cd $BUILD_DIR
+GIT_DIR_ORIG=$GIT_DIR
+unset GIT_DIR
 echo "       Running composer from `pwd`"
 $COMPOSER install
 cd $LP_DIR
+GIT_DIR=$GIT_DIR_ORIG
+unset GIT_DIR_ORIG
 
 ln -s $COMPOSER_VENDOR_DIR $BUILD_DIR/
