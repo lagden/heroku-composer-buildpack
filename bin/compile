@@ -5,27 +5,13 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
 
-echo "-----> Making cache dir"
 mkdir -p $CACHE_DIR
 
-echo "-----> Downloading Package"
+echo "-----> Fetching PHP binaries"
 PHP_PACKAGE="http://redima-composer-buildpack.s3.amazonaws.com/php-5.4.tgz"
-curl $PHP_PACKAGE -s -o - | tar xzf - -C $CACHE_DIR
+curl $PHP_PACKAGE -s -o - | tar xzf - -C $BUILD_DIR
 
-echo "-----> PATH"
-echo $PATH
+PATH="$BUILD_DIR/bin:$PATH"
 
-echo "-----> HOME"
-echo $HOME
-
-echo "-----> BUILD"
-echo $BUILD_DIR
-
-echo "-----> CACHE"
-echo $CACHE_DIR
-
-echo "-----> DIR"
-echo $LP_DIR
-
-echo "-----> PHP?"
-echo `which php`
+echo "-----> Do we have PHP?"
+echo "       `php -r \"print 'Hello World!'.PHP_EOL\"`"
