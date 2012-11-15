@@ -14,4 +14,4 @@ curl $PHP_PACKAGE -o - | tar xzf - -C $CACHE_DIR
 echo $PATH
 
 echo "-----> PHP?"
-echi `which php`
+echo `which php`
