@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir>
-# download PHP
+
 BUILD_DIR=$1
 CACHE_DIR=$2
+LP_DIR=`cd $(dirname $0); cd ..; pwd`
 
 echo "-----> Making cache dir"
 mkdir -p $CACHE_DIR
@@ -16,6 +17,9 @@ echo $PATH
 
 echo "-----> HOME"
 echo $HOME
+
+echo "-----> DIR"
+echo $LP_DIR
 
 echo "-----> PHP?"
 echo `which php`
