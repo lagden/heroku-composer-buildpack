@@ -19,9 +19,8 @@ curl $COMPOSER_URL -s -o $BUILD_DIR/bin/composer
 COMPOSER=$BUILD_DIR/bin/composer
 chmod +x $COMPOSER
 
-export COMPOSER_VENDOR_DIR=$CACHE_DIR/vendor
-mkdir -p $COMPOSER_VENDOR_DIR
-ln -s $COMPOSER_VENDOR_DIR $BUILD_DIR/
+mkdir -p $CACHE_DIR/vendor
+ln -s $CACHE_DIR/vendor $BUILD_DIR
 
 echo "-----> Installing Dependencies"
 echo "       Using `$COMPOSER --version`"
