@@ -3,6 +3,6 @@
 
 cat <<EOF
 ---
-default_process_types:
-  web: php -r "sleep(30);"
+config_vars:
+  PATH: vendor/bin:bin:/usr/local/bin:/usr/bin:/bin
 EOF
