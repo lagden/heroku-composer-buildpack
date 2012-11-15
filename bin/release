@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# bind/release
+
+cat <<EOF
+---
+default_process_types:
+  web: php -r "sleep(30);"
+EOF
