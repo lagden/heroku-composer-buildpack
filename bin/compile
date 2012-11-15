@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir>
+# download PHP
+BUILD_DIR=$1
+CACHE_DIR=$2
+
+echo "-----> Making cache dir"
+mkdir -p $CACHE_DIR
+
+echo "-----> Downloading Package"
+PHP_PACKAGE="http://redima-composer-buildpack.s3.amazonaws.com/php-5.4.tgz"
+curl $PHP_PACKAGE -o - | tar xzf - -C $CACHE_DIR
+
+echo $PATH
+
+echo "-----> PHP?"
+echi `which php`
