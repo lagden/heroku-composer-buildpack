@@ -21,10 +21,11 @@ chmod +x $COMPOSER
 
 export COMPOSER_VENDOR_DIR=$CACHE_DIR/vendor
 mkdir -p $COMPOSER_VENDOR_DIR
+ln -s $COMPOSER_VENDOR_DIR $BUILD_DIR/
 
 echo "-----> Installing Dependencies"
+echo "       Using `$COMPOSER --version`"
 cd $BUILD_DIR
-composer install
+$COMPOSER install
 cd $LP_DIR
 
-ln -s $COMPOSER_VENDOR_DIR $BUILD_DIR/
