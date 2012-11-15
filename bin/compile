@@ -13,5 +13,10 @@ curl $PHP_PACKAGE -s -o - | tar xzf - -C $BUILD_DIR
 
 PATH="$BUILD_DIR/bin:$PATH"
 
-echo "-----> Do we have PHP?"
-echo "       `php -r \"print 'Hello World!'.PHP_EOL;\"`"
+echo "-----> Installing Composer"
+COMPOSER_URL="https://getcomposer.org/composer.phar"
+curl $COMPOSER_URL -s -o $BUILD_DIR/bin/composer
+
+export COMPOSER_VENDOR_DIR=$CACHE_DIR/vendor
+
+composer install
