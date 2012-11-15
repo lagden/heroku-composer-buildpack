@@ -11,7 +11,11 @@ echo "-----> Downloading Package"
 PHP_PACKAGE="http://redima-composer-buildpack.s3.amazonaws.com/php-5.4.tgz"
 curl $PHP_PACKAGE -o - | tar xzf - -C $CACHE_DIR
 
+echo "-----> PATH"
 echo $PATH
+
+echo "-----> HOME"
+echo $HOME
 
 echo "-----> PHP?"
 echo `which php`
