@@ -18,5 +18,6 @@ COMPOSER_URL="https://getcomposer.org/composer.phar"
 curl $COMPOSER_URL -s -o $BUILD_DIR/bin/composer
 
 export COMPOSER_VENDOR_DIR=$CACHE_DIR/vendor
-
+mkdir -p $COMPOSER_VENDOR_DIR
+echo "       Using composer vendor dir: $COMPOSER_VENDOR_DIR"
 composer install
