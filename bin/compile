@@ -31,3 +31,6 @@ GIT_DIR=$GIT_DIR_ORIG
 unset GIT_DIR_ORIG
 
 ln -s $COMPOSER_VENDOR_DIR $BUILD_DIR/
+
+mkdir -p $BUILD_DIR/.profile.d
+echo "export PATH=\"\$HOME/bin:\$HOME/vendor/bin:\$PATH\"" > $BUILD_DIR/.profile.d/composer.sh
