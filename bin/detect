@@ -2,7 +2,7 @@
 
 # this pack is valid for apps with a hello.txt in the root
 if [ -f $1/composer.json ]; then
-  echo "React-PHP"
+  echo "Composer PHP"
   exit 0
 else
   exit 1
