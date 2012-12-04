@@ -7,8 +7,12 @@ LP_DIR=`cd $(dirname $0); cd ..; pwd`
 
 mkdir -p $CACHE_DIR
 
+echo "-----> Fetching libevent binaries"
+LIBEVENT_PACKAGE="http://redima-composer-buildpack.s3.amazonaws.com/libevent-2.0.tgz"
+curl $LIBEVENT_PACKAGE -s -o - | tar xzf - -C $BUILD_DIR
+
 echo "-----> Fetching PHP binaries"
-PHP_PACKAGE="http://redima-composer-buildpack.s3.amazonaws.com/php-5.4.8.tgz"
+PHP_PACKAGE="http://redima-composer-buildpack.s3.amazonaws.com/php-5.4.tgz"
 curl $PHP_PACKAGE -s -o - | tar xzf - -C $BUILD_DIR
 
 PATH="$BUILD_DIR/bin:$PATH"
